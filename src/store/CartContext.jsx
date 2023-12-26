@@ -13,6 +13,7 @@ function cartReducer(state, action) {
         existingIndex = ind;
       }
     });
+    // console.log(existingIndex, state.items);
     const updatedItems = [...state.items];
 
     if (existingIndex !== -1) {
@@ -27,8 +28,11 @@ function cartReducer(state, action) {
     return { ...state, items: updatedItems };
   }
   if (action.type === "REMOVE_ITEM") {
-    const existingIndex = state.items.findIndex((item) => {
-      item.id === action.id;
+    let existingIndex = -1;
+    state.items.forEach((element, ind) => {
+      if (element.id === action.id) {
+        existingIndex = ind;
+      }
     });
     const updatedItems = [...state.items];
 
