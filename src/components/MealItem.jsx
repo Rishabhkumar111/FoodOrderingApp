@@ -1,4 +1,5 @@
 import {currencyFormatter} from "../utils/formatting.js";
+import Button from "./UI/Button.jsx";
 export default function MealItem({ data }) {
   return (
     <li className="meal-item">
@@ -12,7 +13,7 @@ export default function MealItem({ data }) {
           <p className="meal-item-description">{data.description}</p>
         </div>
         <p className="meal-item-actions">
-          <button>Add to Cart</button>
+          <Button>Add to Cart</Button>
         </p>
       </article>
     </li>
