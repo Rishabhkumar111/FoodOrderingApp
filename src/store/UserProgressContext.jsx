@@ -6,6 +6,7 @@ const UserProgressContext = createContext({
   hideCart: () => {},
   showCheckout: () => {},
   hideCheckout: () => {},
+  showConfirmationPage: () => {},
 });
 
 export function UserProgressContextProvider({ children }) {
@@ -22,12 +23,16 @@ export function UserProgressContextProvider({ children }) {
   function hideCheckout() {
     setUserProgress("");
   }
+  function showConfirmationPage() {
+    setUserProgress("done");
+  }
   const useProgressCtx = {
     progress: userProgress,
     showCart,
     hideCart,
     showCheckout,
     hideCheckout,
+    showConfirmationPage,
   };
   return (
     <UserProgressContext.Provider value={useProgressCtx}>
